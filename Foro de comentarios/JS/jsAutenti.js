@@ -13,10 +13,10 @@ condiciones = document.getElementById("condiciones");
 formulario = document.getElementById("formulario");
 
 const objetoValidado = {
-    nombre = false,
-    correo = false,
-    contra = false,
-    condiciones = false,
+    nombre : false,
+    correo : false,
+    contra : false,
+    condiciones : false,
 }
 
 nombre.addEventListener("change", (e) => {
@@ -25,13 +25,12 @@ nombre.addEventListener("change", (e) => {
 })
 
 correo.addEventListener("change", (e) => {
-    expresion = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/
-    if(expresion.test(e.target.value)==true) objetoValidado.correo = true
+    if(e.target.value.trim().length > 5) objetoValidado.correo = true
         else(alert("El correo tiene que ser valido"))
 })
 
 contra.addEventListener("change", (e) => {
-    if (e.target.value.trim().length > 5 && e.target.value==repetir.value) objetoValidado.contra = true
+    if (e.target.value.trim().length > 5) objetoValidado.contra = true
 })
 
 condiciones.addEventListener("change", (e) => {
@@ -44,9 +43,11 @@ formulario.addEventListener("submit", (e) => {
 })
 
 const validateForm = () => {
-    const formValues = Object.values(objetoValidado)
-    const valid = formValues.findIndex(value => value == false)
+    /*const valid = formValues.findIndex(value => value == false)
     if (valid != -1) alert("Formulario invalido")
-        else form.submit();
+        else form.submit();*/
+    if (objetoValidado.nombre == true && objetoValidado.correo == true && objetoValidado.contra == true &&objetoValidado.condiciones == true) 
+        form.submit()
+    else (console.log("no"))
 
 };
