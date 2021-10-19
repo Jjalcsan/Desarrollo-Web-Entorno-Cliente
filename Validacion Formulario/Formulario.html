@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Forms I</title>
+        <style>
+            .visible{
+                visibility: visible;
+            }
+            .invisible{
+                visibility: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="formulario" method="post" action="prueba.php">
+        <h1>Forms I</h1>
+        <br>
+
+        <p>Name: <input id="nombre"></p>
+
+        <p>E-mail: <input id="email"></p>
+
+        <p>Male <input type="radio" name="radio" id="genero"> Female <input type="radio" name="radio" id="genero"></p>
+
+        <p>I accept the terms and conditions <input type="checkbox" id="terminos"></p>
+
+        <p>Kids? <input type="checkbox" id="kids"></p>
+
+        <p class="invisible" id="invisible">How many?: <input></p>
+
+        <button type="submit" id="submit">Send</button>
+
+        </form>
+        <script src="Formulario.js"></script>
+    </body>
+</html>
