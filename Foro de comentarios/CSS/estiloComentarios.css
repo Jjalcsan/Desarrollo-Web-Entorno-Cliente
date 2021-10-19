@@ -1,0 +1,32 @@
+.header{
+    width: 50%;
+    height: 100%;
+}
+
+#tablaDelHeader{
+    width: 100%;
+}
+
+#usuarios{
+    text-align: center;
+    vertical-align: middle;
+}
+
+#comentarios{
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+#header{
+    width: 100%;
+    background-color: rgb(128, 128, 128);
+    height: 70px;
+}
+
+
+#tabla{
+    margin-top: 50px;
+    margin-left: 4%;
+    border-style: solid;
+}

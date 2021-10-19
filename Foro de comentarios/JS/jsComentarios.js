@@ -1,0 +1,1 @@
+tablaPrincipal = document.getElementById("tabla");
