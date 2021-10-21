@@ -1,15 +1,9 @@
 registro = document.getElementById("registro");
-
 nombre = document.getElementById("nombre");
-
 correo = document.getElementById("correo");
-
 contra = document.getElementById("contra");
-
 repetir = document.getElementById("repetir");
-
 condiciones = document.getElementById("condiciones");
-
 formulario = document.getElementById("formulario");
 
 

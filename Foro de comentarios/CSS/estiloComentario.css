@@ -10,7 +10,7 @@ body{
 
 #div-de-la-cabecera{
     width: 100%;
-    height: 10%;
+    height: 20%;
     border-bottom-style: solid;
     border-bottom-color: black;
     border-bottom-width: 3px;
@@ -31,7 +31,6 @@ body{
     border-right-style: solid;
     border-right-color: black;
     border-right-width: 3px;
-
 }
 
 #div-de-enlace-a-posts {
@@ -45,32 +44,3 @@ body{
     border-left-width: 3px;
 }
 
-.arriba{
-    color: white;
-    -webkit-text-stroke: 1px black;
-    text-decoration: none;
-}
-
-#div-de-los-posts{
-    position: absolute;
-    width: 70%;
-    left: 50%;
-    top: 60%;
-    transform: translate(-50%, -60%);
-    color: black;
-}
-
-.autor{
-    width: 20%;
-}
-
-#nuevo-post{
-    width: 100%;
-    background-color: ghostwhite;
-    font-size: 20px;
-}
-
-#link-post{
-    color: black;
-    text-decoration: none;
-}
