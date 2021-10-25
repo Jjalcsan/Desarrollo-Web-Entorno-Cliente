@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Comentario</title>
+	<link rel="stylesheet" type="text/css" href="CSS/estiloComentaio.css">
+</head>
+<body>
+<div id="div-de-todo">
+    <div id="div-de-la-cabecera">
+        <div id="div-de-usuarios">
+            <p><a href="autenti.html" class="arriba">CREACION DE USUARIOS</a></p>
+        </div>
+    	<div id="div-de-enlace-a-posts">
+            <p><a href="index.html" class="arriba">LISTA DE POSTS</a></p>
+         </div>
+    </div>
+    <div id="div-del-cuerpo">
+			<div id="div-titulo"></div>
+			<div id="div-autor"></div>
+		</div>
+		<div id="div-contenido-post"></div>
+		<div id="div-responder">
+			<form id="formulario" method="post">
+				<p>Selecciona el autor del comentario:<br>
+				<select id="autores"></select></p>
+				<p>Escribe el comentario: <br>
+            	<textarea cols="40" rows="20" style="resize: none;" id="comentario"></textarea></p>
+				<button>Enviar</button>
+			</form>
+		</div>
+		<div id="div-respuestas"></div>
+	</div>
+</div>
+<script type="text/javascript" src="JS/jsComentario.js"></script>
+</body>
+</html>
