@@ -6,6 +6,8 @@ finishedList = document.getElementById("finished-list");
 
 contador = localStorage.length;
 
+
+
 enviar.addEventListener("click", (e) => {
    
     e.preventDefault();
@@ -21,22 +23,28 @@ enviar.addEventListener("click", (e) => {
             lista : "todoList"
         }
         todoList.innerHTML += `<div id="${contador}" draggable="true">${objeto}</div>`;
-        localStorage.setItem(contador, JSON.stringify(tarea)); console.log("hola")  
+        localStorage.setItem(contador, JSON.stringify(tarea)); 
     }
 
 })
 
 todoList.addEventListener('dragstart', (e) => {
-    e.dataTransfer.setData('text/plain', e.target.id)
-
+    
+        e.dataTransfer.setData('text/plain', e.target.id);
+        
 })
 
 ongoingList.addEventListener('dragstart', (e) => {
-    e.dataTransfer.setData('text/plain', e.target.id)
+    console.log(e.target)
+    if (e.target && e.target.matches('div[draggable]')) {
+        e.dataTransfer.setData('text/plain', e.target.id);
+    }
 })
 
 finishedList.addEventListener('dragstart', (e) => {
-    e.dataTransfer.setData('text/plain', e.target.id)
+    if (e.currentTarget && e.currentTarget.matches('div[draggable]')) {
+        e.dataTransfer.setData('text/plain', e.target.id);
+    }
 })
 
 todoList.addEventListener('dragover', (e) => {
@@ -64,10 +72,13 @@ ongoingList.addEventListener('drop', (e) => {
 
     ongoingList.appendChild(element)
 
-    nuevoElement = localStorage.getItem(e.target.id, element);
+    const tarea = {
+        id : element.attributes.id.value,
+        tarea : element.innerHTML,
+        lista : "ongoingList"
+    };
 
-    console.log(localStorage.getItem(13, {"id":13,"tarea":"we","lista":"todoList"}));
-
+    localStorage.setItem(element.attributes.id.value, JSON.stringify(tarea));
 })
 
 todoList.addEventListener('drop', (e) => {
@@ -81,6 +92,13 @@ todoList.addEventListener('drop', (e) => {
 
     todoList.appendChild(element)
 
+    const tarea = {
+        id : element.attributes.id.value,
+        tarea : element.innerHTML,
+        lista : "todoList"
+    };
+
+    localStorage.setItem(element.attributes.id.value, JSON.stringify(tarea));
 })
 
 finishedList.addEventListener('drop', (e) => {
@@ -93,6 +111,15 @@ finishedList.addEventListener('drop', (e) => {
     aBorrar.removeChild(element);
 
     finishedList.appendChild(element)
+
+    const tarea = {
+        id : element.attributes.id.value,
+        tarea : element.innerHTML,
+        lista : "finishedList"
+    };
+
+    localStorage.setItem(element.attributes.id.value, JSON.stringify(tarea));
+
 
 })
 
