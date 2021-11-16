@@ -1,0 +1,28 @@
+<p>listado de alumnos</p>
+<ul>
+    <h2 *ngIf="alumnos.length>0; else vaciado">Admitidos</h2>
+
+    <li *ngFor="let alumno of alumnos; let i=index; let primero=first; let ultimo=last" [ngClass]="{azul:primero, verde:ultimo}">
+        <!--odd, even, first, last-->
+        {{i+1}} - {{alumno}}
+    </li>
+
+    <ng-template #vaciado>
+        <h2>Todavia no has admitido a nadie</h2>
+    </ng-template>
+
+    <button (click)="eliminados.push(alumnos.pop()||'')" *ngIf="alumnos.length!=0">Eliminar</button>
+
+    <h2 *ngIf="eliminados.length>0; else vacio">Eliminados</h2>
+
+    <li *ngFor="let eliminado of eliminados">
+        {{eliminado}}
+    </li>
+
+    <button (click)="alumnos.push(eliminados.pop()||'')"  *ngIf="eliminados.length!=0">Admitir</button>
+
+    <ng-template #vacio>
+        <h2>Todavia no has eliminado a nadie</h2>
+    </ng-template>
+
+</ul>
