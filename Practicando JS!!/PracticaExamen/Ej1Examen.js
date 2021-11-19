@@ -43,7 +43,7 @@ nombre.addEventListener("change", (e) => {
 
 pass.addEventListener("change", (e) => {
     contra =/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/
-    if( contra.test(e)){
+    if( contra.test(pass.value)){
         objetoValido.pass = true;
     } else {
         alert("contra invalida")

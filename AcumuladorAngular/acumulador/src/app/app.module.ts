@@ -3,20 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AlumnosComponent } from './alumnos/alumnos/alumnos.component';
-import { AcumuladorComponent } from './acumulador/acumulador.component';
-import { ListadoComponent } from './alumnos/listado/listado.component';
+import { AlumnosModule } from './alumnos/alumnos.module';
+import { AcumuladorModule } from './acumulador/acumulador.module';
+import { AutomaticoModule } from './automatico/automatico.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AlumnosComponent,
-    AcumuladorComponent,
-    ListadoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AlumnosModule,
+    AcumuladorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
