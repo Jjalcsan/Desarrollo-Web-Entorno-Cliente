@@ -16,7 +16,10 @@ import { PersonajesComponent } from './personajes/personajes.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgregarComponent,
+    MainPageComponent,
+    PersonajesComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

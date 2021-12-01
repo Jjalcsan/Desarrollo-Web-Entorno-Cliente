@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { GifsPageComponent } from '../gifs/gifs-page/gifs-page.component';
-import { GifsModule } from '../gifs/gifs.module';
 
 
 
@@ -14,9 +13,7 @@ import { GifsModule } from '../gifs/gifs.module';
     SidebarComponent
   ],
   imports: [
-    CommonModule,
-    GifsPageComponent,
-    GifsModule
+    CommonModule
   ]
 })
 export class SharedModule { }
