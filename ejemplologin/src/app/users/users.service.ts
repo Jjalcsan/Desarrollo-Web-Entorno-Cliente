@@ -26,5 +26,13 @@ export class UsersService {
     return this.cookies.get("token");
   }
 
+  getUser(){
+    return this.http.get("https://reqres.in/api/users/2");
+  }
+
+  getUserLogger(){
+    const token = this.getToken();
+  }
+
 
 }

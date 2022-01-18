@@ -1,12 +1,14 @@
 import { RouterModule } from "@angular/router";
 import { AppComponent } from "./app.component";
+import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 
 const appRoutes = [
     { path: "", component: AppComponent, pathMatch: "full"},
     { path: "login", component: LoginComponent, pathMatch: "full"},
-    { path: "register", component: RegisterComponent, pathMatch: "full"}
+    { path: "register", component: RegisterComponent, pathMatch: "full"},
+    { path: "home", component: HomeComponent, pathMatch: "full"}
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);
