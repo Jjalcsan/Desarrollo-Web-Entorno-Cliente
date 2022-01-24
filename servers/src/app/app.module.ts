@@ -11,6 +11,9 @@ import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.s
 import { ServersService } from './servers/servers.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { ServerResolver } from './servers/server/server-resolver.service';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -20,7 +23,9 @@ import { ServerResolver } from './servers/server/server-resolver.service';
     AppComponent,
     HomeComponent,
     PageNotFoundComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
