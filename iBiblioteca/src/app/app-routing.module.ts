@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'listado',
     loadChildren: () => import('./listado/listado.module').then( m => m.ListadoPageModule)
   }
+  {
+    path: 'detalle',
+    loadChildren: () => import('./detalle/detalle.module').then( m => m.DetallePageModule)
+  }
   
 ];
 
