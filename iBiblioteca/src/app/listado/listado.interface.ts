@@ -14,7 +14,7 @@ export class LibroService {
     loadAPI(){
 
         const params = new HttpParams()
-        .set('title', 'Hola')
+        .set('title', 'Java')
         .set('limit', '10');
 
         return this.http.get<Libros>(`https://openlibrary.org/search.json`,{ params:params });
