@@ -8,7 +8,7 @@
   <ion-content>
     <ion-toolbar>
       <ion-button color="danger" (clik)="scanBRcode()" expand="block">Escanear</ion-button>
-      <ion-searchbar placeholder="Buscar"></ion-searchbar>
+      <ion-searchbar placeholder="Buscar" animated debounce="700" [value]="busca" (ionChange)="listadoLibros($event)"></ion-searchbar>
     </ion-toolbar>
     <ion-card>
       <div *ngIf="scannedBarCode">

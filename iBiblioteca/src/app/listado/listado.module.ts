@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ListadoPageRoutingModule } from './listado-routing.module';
 import { ListadoPage } from './listado.page';
-import { LibroService } from './listado.interface';
+import { ListadoService } from './listado.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
@@ -18,6 +18,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
       HttpClientModule
     ],
     declarations: [ListadoPage],
-    providers:[LibroService]
+    providers:[ListadoService]
   })
   export class ListadoPageModule {}
