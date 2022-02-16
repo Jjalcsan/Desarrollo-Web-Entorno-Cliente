@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Libros, Doc } from './libro.interface';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
 import { ListadoService } from './listado.service';
+import { StorageService } from '../storage.service';
 
 @Component({
   selector: 'app-listado',
@@ -16,7 +17,9 @@ export class ListadoPage implements OnInit {
   scannedBarCode: {};
   barcodeScannerOptions: BarcodeScannerOptions;
 
-  constructor(private listadoDeLibros : ListadoService, private scanner: BarcodeScanner) { 
+  constructor(private listadoDeLibros : ListadoService, 
+              private scanner: BarcodeScanner,
+              private storage: StorageService) { 
 
     this.encodedData = "Programming is about what you know";
 
@@ -56,6 +59,18 @@ export class ListadoPage implements OnInit {
         alert(err);
       })
 
+    }
+
+    addEjemplo() {
+      this.storage.set('hola', 'Mr, Ionitron');
+    }
+
+    async lenght() {
+      console.log(this.storage.length()) ;
+    }
+
+    async clear(){
+      this.storage.clear()
     }
 
 }
