@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <b>Inicio</b>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Inicio</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Bienvenido a iBliblioteca!</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="content">
+        iBiblioteca es una aplicación desarrollada con Ionic que permite gestionar una biblioteca de un centro educativo.
+        <br>Para acceder a la biblioteca pulsa en el siguiente botón:
+      </ion-card-content>
+      <ion-button expand="full" color="light" ><ion-icon slot="start" name="school" id="school"></ion-icon>Acceso a iBiblioteca</ion-button>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Informacion sobre el autor</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="content">
+        Aplicación desarrollada por Javier Gallego.
+      </ion-card-content>
+      <ion-button expand="full" color="light" href="autor"><ion-icon slot="start" name="person"></ion-icon>Consultar información</ion-button>
+    </ion-card>
+
+  </div>
+</ion-content>
