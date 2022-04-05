@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nick": "json-server",
+      "pass": "typicode",
+      "name": "",
+      "surname": "",
+      "age": "",
+      "gender": "",
+      "email": "",
+      "tasks": [
+        {
+          "id": 1,
+          "title": "",
+          "description": "",
+          "place": ""
+        }
+      ]
+    }
+  ]
+}
