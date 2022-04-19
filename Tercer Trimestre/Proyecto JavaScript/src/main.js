@@ -4,6 +4,23 @@ finished = document.getElementById("finished");
 
 document.getElementById("create").addEventListener("click", crearTarea);
 
+let pet = new XMLHttpRequest();
+
+pet.overrideMimeType("application/json");
+
+pet.open('GET', 'http://localhost:3000/tasks', true);
+
+pet.onload = function(){
+    
+    let jsonResponse = JSON.parse(pet.responseText);
+    console.log(jsonResponse);
+
+    for (let step = 0; step < jsonResponse.length; step++){
+        pending.innerHTML += `<div draggable="true" id='${step}'><div>${jsonResponse[step]["title"]}</div><div>${jsonResponse[step]["content"]}</div></div>`
+    }
+}
+pet.send(null);
+
 function crearTarea(e) {
 
     e.preventDefault();
@@ -13,6 +30,18 @@ function crearTarea(e) {
     contador = 0
 
     if (valueTitle!="") {
+
+        const newTask = {
+            title : document.getElementById("title").value,
+            content : document.getElementById("descrip").value,
+            user : "",
+            pos : "1"
+        }
+
+        pet = new XMLHttpRequest();
+        pet.open("POST", "http://localhost:3000/tasks");
+        pet.setRequestHeader('Content-type', 'application/json');
+        pet.send(JSON.stringify(newTask));
 
         contador++;
         pending.innerHTML += `<div draggable="true" id='${contador}'><div>${valueTitle}</div><div>${valueDescrip}</div></div>`

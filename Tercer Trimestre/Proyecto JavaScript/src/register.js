@@ -12,7 +12,7 @@ document.getElementById("register");
 //Estilo
 //Acceso al main
 
-const formulario = document.getElementById("form").addEventListener("submit", (e)=> { e.preventDefault(); validarForm();});
+document.getElementById("form").addEventListener("submit", (e)=> { e.preventDefault(); validarForm();});
 
 //Objeto a validar del formulario
 const allGoodForm = {
@@ -29,7 +29,36 @@ function validarForm() {
 
     const formValues = Object.values(allGoodForm);
     const valid = formValues.findIndex(value => value == false)
-    if(valid == -1) formulario.submit()
+    if(valid == -1) {
+
+        const newUser = {
+            nick:document.getElementById("nick").value,
+            pass:document.getElementById("pass").value,
+            name:document.getElementById("name").value,
+            surname:document.getElementById("surname").value,
+            age:document.getElementById("age").value,
+            gender:document.getElementById("gender").value,
+            email:document.getElementById("email").value
+        }
+
+        pet = new XMLHttpRequest();
+        pet.open("POST", "http://localhost:3000/users");
+        pet.setRequestHeader('Content-type', 'application/json');
+        pet.send(JSON.stringify(newUser));
+        if(pet.readyState===4){
+            if(pet.status===201){
+                console.log("way");
+                document.getElementById("divUsu").innerHTML=`<div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+                <p class="font-bold">Informational message</p>
+                <p class="text-sm">Some additional text to explain said message.</p>
+              </div>`
+            } else {
+                console.log("error")
+    
+            }
+        }
+
+    }
     else alert('Form invalid')
 
 }
@@ -42,7 +71,21 @@ function validaNick() {
 
         allGoodForm.nick = true;
         //Comprobacion de JsonServer
-        document.getElementById("errorNick").innerHTML = "";
+        let pet = new XMLHttpRequest();
+        pet.overrideMimeType("application/json");
+        pet.open('GET', 'http://localhost:3000/users', true);
+        let usuarios = checkNick(pet);
+        console.log(usuarios)
+        /*for (let step = 0; step < usuarios.length; step++){
+
+            if(user[step]["nick"]==value){
+                document.getElementById("errorNick").innerHTML = "Ya existe un usuario con ese nombre";
+            } else {
+                document.getElementById("errorNick").innerHTML = "";
+            }
+        }*/
+
+        
 
     } else {
 
@@ -50,6 +93,22 @@ function validaNick() {
         document.getElementById("nick").value = "";
 
     }
+
+}
+
+function checkNick(pet){
+    let usuarios
+    if(pet.readyState===4){
+        if(pet.status===200){
+            let usuarios = JSON.parse(pet.responseText);
+            console.log(usuarios);
+        } else {
+            console.log("error")
+
+        }
+    }
+
+    
 
 }
 
