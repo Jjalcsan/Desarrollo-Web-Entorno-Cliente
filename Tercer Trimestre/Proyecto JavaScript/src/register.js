@@ -89,8 +89,11 @@ function validaNick() {
 
     } else {
 
+
         document.getElementById("errorNick").innerHTML = "El nick no puede estar vacío";
         document.getElementById("nick").value = "";
+        document.getElementById("nick").classList.replace("border-gray-200", "border-red-500")
+        document.getElementById("nick").classList.replace("focus:border-gray-500", "focus:border-red-500")
 
     }
 
@@ -121,11 +124,15 @@ function validaContra() {
 
         document.getElementById("errorPass").innerHTML = "La contraseña debe tener como minimo 8 caracteres y 10 como maximo";
         document.getElementById("pass").value = "";
+        document.getElementById("pass").classList.replace("border-gray-200", "border-red-500")
+        document.getElementById("pass").classList.replace("focus:border-gray-500", "focus:border-red-500")
 
     } else {
 
         allGoodForm.pass = true;
         document.getElementById("errorPass").innerHTML = "";
+        document.getElementById("pass").classList.replace("border-red-500", "border-gray-200")
+        document.getElementById("pass").classList.replace("focus:border-red-500", "focus:border-gray-500")
 
     }
 
@@ -140,7 +147,8 @@ function validaNombre() {
 
         document.getElementById("errorName").innerHTML= "El nombre solo puede tener letras";
         document.getElementById("name").value = "";
-        console.log("mal");
+        document.getElementById("name").classList.replace("border-gray-200", "border-red-500")
+        document.getElementById("name").classList.replace("focus:border-gray-500", "focus:border-red-500")
 
     } else {
 
@@ -159,7 +167,8 @@ function validaApellido() {
 
         document.getElementById("errorSurname").innerHTML= "Debes poner dos apellidos y solo pueden tener letras";
         document.getElementById("surname").value = "";
-        console.log("mal");
+        document.getElementById("surname").classList.replace("border-gray-200", "border-red-500")
+        document.getElementById("surname").classList.replace("focus:border-gray-500", "focus:border-red-500")
 
     } else {
 
@@ -183,6 +192,8 @@ function validaEdad() {
 
         document.getElementById("errorAge").innerHTML = "Debes tener 18 años como mínimo"
         document.getElementById("age").value = "";
+        document.getElementById("age").classList.replace("border-gray-200", "border-red-500")
+        document.getElementById("age").classList.replace("focus:border-gray-500", "focus:border-red-500")
 
     }
 }
@@ -200,6 +211,8 @@ function validaGenero() {
     } else {
 
         document.getElementById("errorGender").innerHTML = "Elige una opción";
+        document.getElementById("errorGender").classList.replace("border-gray-200", "border-red-500")
+        document.getElementById("errorGender").classList.replace("focus:border-gray-500", "focus:border-red-500")
 
     }
     
@@ -216,6 +229,8 @@ function validaEmail() {
     } else {
         document.getElementById("errorEmail").innerHTML="<p>Debes introducir un email valido</p>";
         document.getElementById("email").value = "";
+        document.getElementById("email").classList.replace("border-gray-200", "border-red-500")
+        document.getElementById("email").classList.replace("focus:border-gray-500", "focus:border-red-500")
         
     }
 }
