@@ -1,3 +1,5 @@
+//const { get } = require("http");
+
 document.getElementById("nick").addEventListener("change", validaNick);
 document.getElementById("pass").addEventListener("change", validaContra);
 document.getElementById("name").addEventListener("change", validaNombre);
@@ -45,21 +47,21 @@ function validarForm() {
         pet.open("POST", "http://localhost:3000/users");
         pet.setRequestHeader('Content-type', 'application/json');
         pet.send(JSON.stringify(newUser));
+        peticion.addEventListener('readystatechange', function() {
         if(pet.readyState===4){
             if(pet.status===201){
-                console.log("way");
-                document.getElementById("divUsu").innerHTML=`<div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
-                <p class="font-bold">Informational message</p>
-                <p class="text-sm">Some additional text to explain said message.</p>
-              </div>`
+                alert("¡Usuario creado correctamente!");
+                window.location.href = "main.html"
+
             } else {
                 console.log("error")
     
             }
         }
+        }
 
     }
-    else alert('Form invalid')
+    else {alert('Form invalid')}
 
 }
 
@@ -69,26 +71,30 @@ function validaNick() {
 
     if(value!= ""){
 
-        allGoodForm.nick = true;
-        //Comprobacion de JsonServer
-        let pet = new XMLHttpRequest();
-        pet.overrideMimeType("application/json");
-        pet.open('GET', 'http://localhost:3000/users', true);
-        let usuarios = checkNick(pet);
-        console.log(usuarios)
-        /*for (let step = 0; step < usuarios.length; step++){
-
-            if(user[step]["nick"]==value){
-                document.getElementById("errorNick").innerHTML = "Ya existe un usuario con ese nombre";
-            } else {
-                document.getElementById("errorNick").innerHTML = "";
+        let peticion = new XMLHttpRequest();
+        peticion.open('GET', 'http://localhost:3000/users');
+        peticion.send();
+        peticion.addEventListener('readystatechange', function() {
+            if (peticion.readyState === 4) {
+                if (peticion.status === 200) {
+                    let usuarios = JSON.parse(peticion.responseText);
+                    for (let i = 0; i<usuarios.length; i++){
+                        if (usuarios[i]["nick"]==nick){
+                            document.getElementById("errorNick").innerHTML = "El nick ya esta registrado";
+                            document.getElementById("nick").value = "";
+                        } else {
+                            document.getElementById("errorNick").value = "";
+                            allGoodForm.nick = true;
+                        }
+                    }
+    
+                } else {
+                    console.log("Error " + peticion.status + " (" + peticion.statusText + ") en la petición");
+                }
             }
-        }*/
-
-        
+        })
 
     } else {
-
 
         document.getElementById("errorNick").innerHTML = "El nick no puede estar vacío";
         document.getElementById("nick").value = "";
@@ -99,19 +105,26 @@ function validaNick() {
 
 }
 
-function checkNick(pet){
-    let usuarios
-    if(pet.readyState===4){
-        if(pet.status===200){
-            let usuarios = JSON.parse(pet.responseText);
-            console.log(usuarios);
-        } else {
-            console.log("error")
+function comparaNick(nick) {
 
+    let peticion = new XMLHttpRequest();
+    peticion.open('GET', 'http://localhost:3000/users');
+    peticion.send();
+    peticion.addEventListener('readystatechange', function() {
+        if (peticion.readyState === 4) {
+            if (peticion.status === 200) {
+                let usuarios = JSON.parse(peticion.responseText);
+                for (let i = 0; i<usuarios.length; i++){
+                    if (!usuarios[i]["nick"]==nick){
+
+                    }
+                }
+
+            } else {
+                console.log("Error " + peticion.status + " (" + peticion.statusText + ") en la petición");
+            }
         }
-    }
-
-    
+    })
 
 }
 

@@ -1,0 +1,9 @@
+Register/login
+
+-Sacar datos almacenados en getData de register para cotejar nick --> Hacerlo con nick, email y login
+
+-await y location al completar formulario para mostrar alerta de usuario creado durante unos segundos
+
+Main
+
+-XMLHttpRequest de PUT en DROP de lista "ongoin" para modificar la posicion de una tarea

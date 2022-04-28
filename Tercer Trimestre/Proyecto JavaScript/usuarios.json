@@ -11,154 +11,37 @@
       "email": ""
     },
     {
-      "nick": "awdaw",
-      "pass": "Aposweabj3e3",
-      "name": "Juanjo",
-      "surname": "Juan juan",
-      "age": "23",
+      "nick": "Juanjo",
+      "pass": "COntrseañ1",
+      "name": "admin",
+      "surname": "awd awdawd",
+      "age": "32",
       "gender": "hombre",
-      "email": "hola@gmail.com",
+      "email": "jjalcsan@gmail.com",
       "id": 2
-    },
-    {
-      "nick": "awdaw",
-      "pass": "Aposweabj3e3",
-      "name": "Juanjo",
-      "surname": "Juan juan",
-      "age": "23",
-      "gender": "hombre",
-      "email": "hola@gmail.com",
-      "id": 3
-    },
-    {
-      "nick": "awdaw",
-      "pass": "Aposweabj3e3",
-      "name": "Juanjo",
-      "surname": "Juan juan",
-      "age": "23",
-      "gender": "hombre",
-      "email": "hola@gmail.com",
-      "id": 4
-    },
-    {
-      "nick": "awdaw",
-      "pass": "Aposweabj3e3",
-      "name": "Juanjo",
-      "surname": "Juan juan",
-      "age": "23",
-      "gender": "hombre",
-      "email": "hola@gmail.com",
-      "id": 5
-    },
-    {
-      "nick": "awdaw",
-      "pass": "Aposweabj3e3",
-      "name": "Juanjo",
-      "surname": "Juan juan",
-      "age": "23",
-      "gender": "hombre",
-      "email": "hola@gmail.com",
-      "id": 6
-    },
-    {
-      "nick": "awdaw",
-      "pass": "Aposweabj3e3",
-      "name": "Juanjo",
-      "surname": "Juan juan",
-      "age": "23",
-      "gender": "hombre",
-      "email": "hola@gmail.com",
-      "id": 7
-    },
-    {
-      "nick": "awdaw",
-      "pass": "Aposweabj3e3",
-      "name": "Juanjo",
-      "surname": "Juan juan",
-      "age": "23",
-      "gender": "hombre",
-      "email": "hola@gmail.com",
-      "id": 8
-    },
-    {
-      "nick": "awdaw",
-      "pass": "Aposweabj3e3",
-      "name": "Juanjo",
-      "surname": "Juan juan",
-      "age": "23",
-      "gender": "hombre",
-      "email": "hola@gmail.com",
-      "id": 9
-    },
-    {
-      "nick": "awdaw",
-      "pass": "Aposweabj3e3",
-      "name": "Juanjo",
-      "surname": "Juan juan",
-      "age": "23",
-      "gender": "hombre",
-      "email": "hola@gmail.com",
-      "id": 10
-    },
-    {
-      "nick": "awdaw",
-      "pass": "Aposweabj3e3",
-      "name": "Juanjo",
-      "surname": "Juan juan",
-      "age": "23",
-      "gender": "hombre",
-      "email": "hola@gmail.com",
-      "id": 11
-    },
-    {
-      "nick": "awdaw",
-      "pass": "Aposweabj3e3",
-      "name": "Juanjo",
-      "surname": "Juan juan",
-      "age": "23",
-      "gender": "hombre",
-      "email": "hola@gmail.com",
-      "id": 12
-    },
-    {
-      "nick": "awdaw",
-      "pass": "Aposweabj3e3",
-      "name": "Juanjo",
-      "surname": "Juan juan",
-      "age": "23",
-      "gender": "hombre",
-      "email": "hola@gmail.com",
-      "id": 13
     }
   ],
   "tasks": [
     {
-      "id": "1",
-      "title": "prueba",
-      "content": "probrando",
-      "user": "awdaw",
-      "pos": "1"
+      "title": "",
+      "content": "",
+      "user": "",
+      "pos": 0,
+      "id": 0
     },
     {
-      "title": "uno",
-      "content": "descrip",
+      "title": "hola",
+      "content": "23",
       "user": "",
-      "pos": "1",
-      "id": "cNAoVOl"
+      "pos": "2",
+      "id": 1
     },
     {
-      "title": "dos",
-      "content": "descrip",
+      "title": "2323",
+      "content": "2323",
       "user": "",
       "pos": "1",
-      "id": "-ahKT96"
-    },
-    {
-      "title": "tara",
-      "content": "23232",
-      "user": "",
-      "pos": "1",
-      "id": "pr_FtMT"
+      "id": 21
     }
   ]
 }

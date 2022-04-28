@@ -7,28 +7,35 @@
     <title>Lista de tareas</title>
     <link href="../dist/output.css" rel="stylesheet">
 </head>
-<body>
-    <div>
-        <label>Título:</label><br>
-        <input id="title"><br>
+<body id="body" class="bg-white">
+    <div class="flex flex-wrap grid grid-cols-4 gap-2">
+        <div class="col-start-1 col-span-2">
+            <label id="label1" class="labels block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Título:</label><br>
+            <input id="input1" class="inputs appearance-none block w-full bg-white text-gray-700 border border-gray-500 rounded" ><br>
 
-        <label>Descripción:</label><br>
-        <input type="text" id="descrip"><br>
+            <label id="label2" class="labels block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción:</label><br>
+            <input id="input2" class="inputs appearance-none block w-full bg-white text-gray-700 border border-gray-500 rounded py-3 px-4 leading-tight" type="text"><br>
 
-        <button id="create">Crear</button>
-
+            <button class="bg-transparent hover:bg-black text-black-700 font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded" id="create">Crear</button>
+        </div>
+        <div class="col-end-5 col-span-1 grid grid-cols-2 place-items-center gap-4 justify-items-center">
+            <div><button id="negro" class="bg-black text-white font-bold py-2 px-4 rounded-full"></button></div>
+            <div><button id="blanco" class="border border-black bg-white text-white font-bold py-2 px-4 rounded-full"></button></div>
+            <div><button id="azul" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-full"></button></div>
+            <div><button id="rojo" class="bg-red-600 text-white font-bold py-2 px-4 rounded-full"></button></div>
+        </div>
     </div>
-
-    <div id="pending">
-        <h2>Por hacer:</h2>
+    <br>
+    <div id="pending" class="w-full h-48 border border-black rounded-md">
+        <h2 id="h2pending" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Por hacer:</h2>
     </div>
-
-    <div id="ongoing">
-        <h2>En curso:</h2>
+    <br>
+    <div id="ongoing" class="w-full h-48 border border-black rounded-md">
+        <h2 id="h2ongoing" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">En curso:</h2>
     </div>
-
-    <div id="finished">
-        <h2>Finalizadas:</h2>
+    <br>
+    <div id="finished" class="w-full h-48 border border-black rounded-md">
+        <h2 id="h2finished" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Finalizadas:</h2>
     </div>
 
 </body>
