@@ -1,15 +1,18 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button><ion-icon name="arrow-back"></ion-icon></ion-back-button>
+    </ion-buttons>
     <ion-title>Biblioteca</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <p></p>
+    <ion-searchbar debounce="1000" (ionChange)="realizarBusqueda($event)"></ion-searchbar>
     <ion-item *ngFor="let libro of libros">
       <ion-thumbnail>
-        <img src={{libro.isbn}}>
+        <img src="https://covers.openlibrary.org/b/id/{{libro.cover_i}}-M.jpg">
       </ion-thumbnail>
       <ion-label>
         <p><b>{{libro.title}}</b></p>

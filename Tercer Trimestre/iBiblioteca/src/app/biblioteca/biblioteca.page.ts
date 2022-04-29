@@ -13,24 +13,28 @@ export class BibliotecaPage implements OnInit {
 
   ngOnInit() {
 
-    this.listadoLibros();
-
+    //this.listadoLibros();
   }
+
+  busqueda = "";
 
   libros: Doc[] = []
 
   listadoLibros(){
 
     this.listado.cargarLibros()
+    .subscribe(resp => {this.libros = resp.docs;}
+    ,error => {console.log(error);})
 
-    .subscribe(resp => {
+  }
 
-      this.libros = resp.docs;
-      
-    }
-    ,error => {
+  realizarBusqueda(busqueda){
 
-      console.log(error);
+    this.busqueda = busqueda.detail.value
+    
+    this.listado.realizarBusqueda(this.busqueda)
+    .subscribe({next: resp =>{this.libros = resp.docs;}
+    ,error: e =>{console.log(e);}
 
     })
   }
