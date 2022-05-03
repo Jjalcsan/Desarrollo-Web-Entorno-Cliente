@@ -1,9 +1,16 @@
 Register/login
 
--Sacar datos almacenados en getData de register para cotejar nick --> Hacerlo con nick, email y login
-
--await y location al completar formulario para mostrar alerta de usuario creado durante unos segundos
+-Error en el registro que no puedo ver/Al completar el registro el usuario se crea pero se lanza un error y la pagina se recargar por lo que no puedo verlo
 
 Main
 
--XMLHttpRequest de PUT en DROP de lista "ongoin" para modificar la posicion de una tarea
+-Como cargar el tema especifico guardado en el LocalStorage
+
+
+Por hacer:
+
+arreglar peticion post de tarea
+mostrar error concreto en caso de alerta de registro
+arreglar problema de estilo nick
+
+

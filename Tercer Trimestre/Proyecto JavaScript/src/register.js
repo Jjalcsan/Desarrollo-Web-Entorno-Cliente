@@ -1,5 +1,3 @@
-//const { get } = require("http");
-
 document.getElementById("nick").addEventListener("change", validaNick);
 document.getElementById("pass").addEventListener("change", validaContra);
 document.getElementById("name").addEventListener("change", validaNombre);
@@ -8,13 +6,8 @@ document.getElementById("age").addEventListener("change", validaEdad);
 document.getElementById("gender").addEventListener("change", validaGenero);
 document.getElementById("email").addEventListener("change", validaEmail);
 
-document.getElementById("register");
 
-//Backend con JSon
-//Estilo
-//Acceso al main
-
-document.getElementById("form").addEventListener("submit", (e)=> { e.preventDefault(); validarForm();});
+document.getElementById("register").addEventListener("click", validarForm);//(e)=> { e.preventDefault(); validarForm();});
 
 //Objeto a validar del formulario
 const allGoodForm = {
@@ -27,11 +20,9 @@ const allGoodForm = {
     email : false
 }
 
-function validarForm() {
-
-    const formValues = Object.values(allGoodForm);
-    const valid = formValues.findIndex(value => value == false)
-    if(valid == -1) {
+function validarForm(event) {
+    event.preventDefault();
+    if(allGoodForm.nick==true && allGoodForm.pass==true && allGoodForm.namer==true && allGoodForm.surname==true && allGoodForm.age==true && allGoodForm.gender==true && allGoodForm.email==true) {
 
         const newUser = {
             nick:document.getElementById("nick").value,
@@ -47,21 +38,32 @@ function validarForm() {
         pet.open("POST", "http://localhost:3000/users");
         pet.setRequestHeader('Content-type', 'application/json');
         pet.send(JSON.stringify(newUser));
-        peticion.addEventListener('readystatechange', function() {
-        if(pet.readyState===4){
-            if(pet.status===201){
-                alert("¡Usuario creado correctamente!");
-                window.location.href = "main.html"
-
-            } else {
-                console.log("error")
-    
+        pet.addEventListener('load', function() {
+            //if (pet.readyState === 4) {
+                if (pet.status === 201) {
+                    Swal.fire(
+                        'Good job!',
+                        'You clicked the button!',
+                        'success'
+                      )
+                    // alert('El usuario se ha creado correctament')
+                    localStorage.setItem("usuario", document.getElementById("nick").value)
+                    window.location.href = "main.html"
+                }
+            else {
+                alert(pet.status,pet.statusText)
             }
-        }
-        }
+        })
 
     }
-    else {alert('Form invalid')}
+    else {
+        Swal.fire({
+            title: 'Ha ocurrido un error',
+            text: 'Rellena el formulario correctamente',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
+    }
 
 }
 
@@ -79,12 +81,16 @@ function validaNick() {
                 if (peticion.status === 200) {
                     let usuarios = JSON.parse(peticion.responseText);
                     for (let i = 0; i<usuarios.length; i++){
-                        if (usuarios[i]["nick"]==nick){
+                        if (usuarios[i].nick==value){
                             document.getElementById("errorNick").innerHTML = "El nick ya esta registrado";
                             document.getElementById("nick").value = "";
+                            document.getElementById("nick").classList.replace("border-gray-200", "border-red-500")
+                            document.getElementById("nick").classList.replace("focus:border-gray-500", "focus:border-red-500")
                         } else {
                             document.getElementById("errorNick").value = "";
                             allGoodForm.nick = true;
+                            document.getElementById("pass").classList.replace("border-red-500", "border-gray-200")
+                            document.getElementById("pass").classList.replace("focus:border-red-500", "focus:border-gray-500")
                         }
                     }
     
@@ -199,7 +205,9 @@ function validaEdad() {
     if(value>=18) {
 
         allGoodForm.age = true;
-        document.getElementById("errorAge").innerHTML = "";
+        document.getElementById("errorAge").innerHTML = "";      
+        document.getElementById("age").classList.replace("border-red-500", "border-gray-200")
+        document.getElementById("age").classList.replace("focus:border-red-500","focus:border-gray-500")
 
     } else {
 
@@ -220,6 +228,9 @@ function validaGenero() {
 
         allGoodForm.gender = true;
         document.getElementById("errorGender").innerHTML = "";
+        
+        document.getElementById("gender").classList.replace("border-red-500", "border-gray-200")
+        document.getElementById("gender").classList.replace("focus:border-red-500","focus:border-gray-500")
 
     } else {
 
@@ -236,10 +247,41 @@ function validaEmail() {
     validEmail = /^(([^<>()\[\]\\.,:\s@"]+(\.[^<>()\[\]\\.,:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     value = document.getElementById("email").value;
 
-    if(validEmail.test(value)){
-        allGoodForm.email = true;
-        document.getElementById("errorEmail").innerHTML = "";
+    if(value!= "" && validEmail.test(value)){
+
+        let peticion = new XMLHttpRequest();
+        peticion.open('GET', 'http://localhost:3000/users');
+        peticion.send();
+        peticion.addEventListener('readystatechange', function() {
+            if (peticion.readyState === 4) {
+                if (peticion.status === 200) {
+                    let usuarios = JSON.parse(peticion.responseText);
+                    for (let i = 0; i<usuarios.length; i++){
+                        if (usuarios[i].email==value){
+
+                            document.getElementById("errorEmail").innerHTML = "El email ya esta registrado";
+                            document.getElementById("email").value = "";  
+                            document.getElementById("email").classList.replace("border-gray-200", "border-red-500")
+                            document.getElementById("email").classList.replace("focus:border-gray-500", "focus:border-red-500")
+
+                        } else {
+
+                            document.getElementById("errorEmail").innerHTML = "";
+                            allGoodForm.email = true;
+                            document.getElementById("email").classList.replace("border-red-500", "border-gray-200")
+                            document.getElementById("email").classList.replace("focus:border-red-500","focus:border-gray-500")
+
+                        }
+                    }
+    
+                } else {
+                    console.log("Error " + peticion.status + " (" + peticion.statusText + ") en la petición");
+                }
+            }
+        })
+
     } else {
+
         document.getElementById("errorEmail").innerHTML="<p>Debes introducir un email valido</p>";
         document.getElementById("email").value = "";
         document.getElementById("email").classList.replace("border-gray-200", "border-red-500")
